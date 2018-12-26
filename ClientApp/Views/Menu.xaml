@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="ClientApp.Views.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <NavigationView x:Name="Nav_Menu" IsBackButtonVisible="Visible" ItemInvoked="Nav_Menu_ItemInvoked" Margin="0 12 0 0" IsTabStop="True" IsSettingsVisible="False" IsPaneToggleButtonVisible="False">
+            <NavigationView.Header>
+                <TextBlock x:Name="Content_Header" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            </NavigationView.Header>
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Contact" Tag="CaNhan">
+                    <TextBlock Tag="Nav_CaNhan">Cá Nhân</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="Bullets" Tag="LopHoc">
+                    <TextBlock Tag="Nav_LopHoc">Lớp Học</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="CalendarWeek" Tag="MonHoc">
+                    <TextBlock Tag="Nav_MonHoc">Môn Học</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="Share" Tag="MonHoc" Tapped="NavigationViewItem_Tapped">
+                    <TextBlock Tag="Nav_MonHoc">Đăng Xuất</TextBlock>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame x:Name="contentFrame"></Frame>
+        </NavigationView>
+        
+    </Grid>
+</Page>

@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="ClientApp.Views.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientApp.Views"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center" Width="400" Margin="0 70 0 0">
+                <TextBlock HorizontalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}" Text="FPT APTECH"></TextBlock>
+                <TextBox x:Name="Email" Header="Email" Margin="0 60 0 0">
+                </TextBox>
+                <PasswordBox x:Name="Password" Header="Mật Khẩu" Margin="0 0 0 0">
+                </PasswordBox>
+                <StackPanel>
+                    <TextBlock x:Name="Nontification" Visibility="Collapsed" Margin="0 5 0 0" Foreground="Red"/>
+                    <HyperlinkButton Click="HyperlinkButton_Click" HorizontalAlignment="Right">Quên Mật Khẩu?</HyperlinkButton>
+                </StackPanel>
+                <Button Content="Đăng Nhập" Click="Button_Click" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+                <TextBlock Text="© 2018 Powered by FPT University" Margin="0 200 0 0" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+    
+</Page>
