@@ -23,8 +23,11 @@
                 <NavigationViewItem Icon="CalendarWeek" Tag="MonHoc">
                     <TextBlock Tag="Nav_MonHoc">Môn Học</TextBlock>
                 </NavigationViewItem>
-                <NavigationViewItem Icon="Share" Tag="MonHoc" Tapped="NavigationViewItem_Tapped">
-                    <TextBlock Tag="Nav_MonHoc">Đăng Xuất</TextBlock>
+                <NavigationViewItem Icon="Share" Tapped="NavigationViewItem_Tapped">
+                    <TextBlock>Đăng Xuất</TextBlock>
+                </NavigationViewItem>
+                <NavigationViewItem Icon="Clear" Tapped="NavigationViewItem_Tapped_1">
+                    <TextBlock>Thoát</TextBlock>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
             <Frame x:Name="contentFrame"></Frame>

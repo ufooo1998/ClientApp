@@ -24,6 +24,7 @@ namespace ClientApp.Views
     /// </summary>
     public sealed partial class Menu : Page
     {
+        StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
         public Menu()
         {
             this.InitializeComponent();
@@ -71,10 +72,36 @@ namespace ClientApp.Views
             /// Otherwise, do nothing.
             if (result == ContentDialogResult.Primary)
             {
-                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                
                 await storageFolder.CreateFileAsync("UserData.txt", CreationCollisionOption.ReplaceExisting);
                 await storageFolder.CreateFileAsync("UserLogin.txt", CreationCollisionOption.ReplaceExisting);
                 this.Frame.Navigate(typeof(Login));
+            }
+            else
+            {
+                // The user clicked the CLoseButton, pressed ESC, Gamepad B, or the system back button.
+                // Do nothing.
+            }
+        }
+
+        private async void NavigationViewItem_Tapped_1(object sender, TappedRoutedEventArgs e)
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = "Thoát",
+                Content = "Bạn có muốn thoát ứng dụng?",
+                PrimaryButtonText = "OK",
+                CloseButtonText = "Cancel"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+
+            // Delete the file if the user clicked the primary button.
+            /// Otherwise, do nothing.
+            if (result == ContentDialogResult.Primary)
+            {
+                await storageFolder.CreateFileAsync("UserData.txt", CreationCollisionOption.ReplaceExisting);
+                Application.Current.Exit();
             }
             else
             {

@@ -9,41 +9,76 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel>
-        <Grid x:Name="ShowInfo" Margin="20 50 20 20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <StackPanel x:Name="ShowInfo" Visibility="Visible">
+            <TextBlock x:Name="Nontification" Visibility="Collapsed" Margin="20 5 0 0" Foreground="Green"/>
+            <Grid Margin="20 50 20 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0">
-                <TextBlock Text="Họ Và Tên:"/>
-                <TextBlock x:Name="HoTen" Margin="5 5 0 10" FontWeight="Bold"/>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Họ Và Tên:"/>
+                    <TextBlock x:Name="FullName" Margin="5 5 0 10" FontWeight="Bold"/>
 
-                <TextBlock Text="Mã Sinh Viên:"/>
-                <TextBlock x:Name="MaSinhVien" Margin="5 5 0 10" FontWeight="Bold"/>
+                    <TextBlock Text="Mã Sinh Viên:"/>
+                    <TextBlock x:Name="RollNumber" Margin="5 5 0 10" FontWeight="Bold"/>
 
-                <TextBlock Text="Ngày Sinh:"/>
-                <TextBlock x:Name="NgaySinh" Margin="5 5 0 10" FontWeight="Bold"/>
+                    <TextBlock Text="Ngày Sinh:"/>
+                    <TextBlock x:Name="DateOfBirth" Margin="5 5 0 10" FontWeight="Bold"/>
 
-                <TextBlock Text="Giới Tính:"/>
-                <TextBlock x:Name="GioiTinh" Margin="5 5 0 10" FontWeight="Bold"/>
+                    <TextBlock Text="Giới Tính:"/>
+                    <TextBlock x:Name="Gender" Margin="5 5 0 10" FontWeight="Bold"/>
 
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Quê Quán:"/>
+                    <TextBlock x:Name="Address" Margin="5 5 0 10" FontWeight="Bold"/>
+
+                    <TextBlock Text="Email:"/>
+                    <TextBlock x:Name="Email" Margin="5 5 0 10" FontWeight="Bold"/>
+
+                    <TextBlock Text="Lớp:"/>
+                    <TextBlock x:Name="Grade" Margin="5 5 0 10" FontWeight="Bold"/>
+
+                    <TextBlock Text="Số Điện Thoại:"/>
+                    <TextBlock x:Name="Phone" Margin="5 5 0 10" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+            <Button Click="Button_Click" Margin="20">Chỉnh Sửa</Button>
+        </StackPanel>
+
+        <StackPanel x:Name="EditInfo" Visibility="Collapsed">
+            <Grid Margin="20 50 20 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBox Name="firstName" Header="Họ" Margin="5 5 50 10"></TextBox>
+                    <TextBox Name="lastName" Header="Tên" Margin="5 5 50 10"></TextBox>
+                    <DatePicker x:Name="DoB" Margin="5 5 0 10" Header="Ngày Sinh"></DatePicker>
+                    <ComboBox x:Name="GenderComboBox" Margin="5 5 0 10" Header="Giới Tính" PlaceholderText="Chọn">
+                        <x:String>Nữ</x:String>
+                        <x:String>Nam</x:String>
+                        <x:String>Khác</x:String>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Name="editPhone" Header="Số Điện Thoại" Margin="5 5 0 10"></TextBox>
+                    <TextBox Name="editAddress" Header="Quê Quán" Margin="5 5 0 10"></TextBox>
+                    <TextBox Name="editAvatar" Header="Avatar Link" Margin="5 5 0 10"></TextBox>
+                    
+                </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <Button Click="Button_Edit_Click" Margin="25 0 0 0">Lưu</Button>
+                <Button Click="Button_Cancel_Click" Margin="20 0 0 0">Huỷ</Button>
             </StackPanel>
-            <StackPanel Grid.Column="1">
-                <TextBlock Text="Quê Quán:"/>
-                <TextBlock x:Name="QueQuan" Margin="5 5 0 10" FontWeight="Bold"/>
+        </StackPanel>
 
-                <TextBlock Text="Email:"/>
-                <TextBlock x:Name="Email" Margin="5 5 0 10" FontWeight="Bold"/>
-
-                <TextBlock Text="Lớp:"/>
-                <TextBlock x:Name="Lop" Margin="5 5 0 10" FontWeight="Bold"/>
-
-                <TextBlock Text="Số Điện Thoại:"/>
-                <TextBlock x:Name="SoDienThoai" Margin="5 5 0 10" FontWeight="Bold"/>
-            </StackPanel>
-        </Grid>
-        <Button Click="Button_Click" Margin="20">Chỉnh Sửa</Button>
     </StackPanel>
+    
     
 </Page>

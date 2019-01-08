@@ -8,7 +8,9 @@ namespace ClientApp.Entities
 {
     class API_URL
     {
-        public string Login = "https://studentmanager20181225060217.azurewebsites.net/api/AuthenticationApi";
-        public string GetInfo = "https://studentmanager20181225060217.azurewebsites.net/api/student/information?token=";
+        public string Login = "https://studentmanager20190107033227.azurewebsites.net/api/student/login";
+        public string GetInfo = "https://studentmanager20190107033227.azurewebsites.net/api/student/infor";
+        public string EditInfo = "https://studentmanager20190107033227.azurewebsites.net/api/student/change-information";
+
     }
 }

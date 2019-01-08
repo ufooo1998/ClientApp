@@ -97,8 +97,9 @@
     </Compile>
     <Compile Include="Entities\AccessInfo.cs" />
     <Compile Include="Entities\API_URL.cs" />
-    <Compile Include="Entities\DangNhap.cs" />
-    <Compile Include="Entities\SinhVien.cs" />
+    <Compile Include="Entities\EditInfo.cs" />
+    <Compile Include="Entities\LoginInfo.cs" />
+    <Compile Include="Entities\Student.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

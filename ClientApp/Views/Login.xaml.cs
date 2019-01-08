@@ -33,13 +33,12 @@ namespace ClientApp.Views
     {
         StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 
-        private DangNhap currentDN;
+        private LoginInfo currentLogin;
         private API_URL link;
         public Login()
         {
             this.InitializeComponent();
-            checkLogin();
-            this.currentDN = new DangNhap();
+            this.currentLogin = new LoginInfo();
             this.link = new API_URL();
         }
 
@@ -48,29 +47,27 @@ namespace ClientApp.Views
             
         }
 
-        public async void checkLogin()
-        {
-            StorageFile data = await storageFolder.GetFileAsync("UserLogin.txt");
-            string stringdata = await FileIO.ReadTextAsync(data);
-            if (stringdata != "")
-            {
-                AccessInfo accessInfo = JsonConvert.DeserializeObject<AccessInfo>(stringdata);
-                string formatDateTime = accessInfo.expireAt.Remove(19);
-                formatDateTime = formatDateTime.Replace("T", " ");
-                DateTime ExpiredTime = DateTime.ParseExact(formatDateTime, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
-                if (ExpiredTime > DateTime.Now)
-                {
-                    this.Frame.Navigate(typeof(Menu));
-                }
-            }
-        }
+        //public async void checkLogin(object sender)
+        //{
+        //    StorageFile datafile = await storageFolder.GetFileAsync("UserLogin.txt");
+        //    string data = await FileIO.ReadTextAsync(datafile);
+        //    if (data != "")
+        //    {
+        //        AccessInfo accessInfo = JsonConvert.DeserializeObject<AccessInfo>(data);
+        //        if (accessInfo.expiredAt > DateTime.Now)
+        //        {
+                    
+        //        }
+        //    }
+        //}
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Nontification.Visibility = Visibility.Collapsed;
             if (Regex.IsMatch(Email.Text, "[@]") && Regex.IsMatch(Email.Text, "[.]") && Password.Password != null)
             {
-                currentDN.Email = this.Email.Text;
-                currentDN.Password = this.Password.Password;
-                string jsonString = JsonConvert.SerializeObject(currentDN);
+                currentLogin.Email = this.Email.Text;
+                currentLogin.Password = this.Password.Password;
+                string jsonString = JsonConvert.SerializeObject(currentLogin);
 
                 HttpClient httpClient = new HttpClient();
                 var jsonContent = new StringContent(jsonString, Encoding.UTF8, "application/json");

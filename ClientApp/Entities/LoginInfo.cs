@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientApp.Entities
 {
-    class DangNhap
+    class LoginInfo
     {
         public string Email { get; set; }
         public string Password { get; set; }

@@ -10,9 +10,11 @@ namespace ClientApp.Entities
     {
         public string accessToken { get; set; }
         public string ownId { get; set; }
-        public string cretedAt { get; set; }
-        public string updatedAt { get; set; }
-        public string expireAt { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
+        public DateTime deletedAt { get; set; }
+        public DateTime expiredAt { get; set; }
+        public int status { get; set; }
 
     }
 }
